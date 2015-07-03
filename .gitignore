@@ -9,3 +9,7 @@
 /composer.phar
 /vendor/
 /web/bundles/
+/nbproject/private/
+/.vagrant/
+/nbproject/
+*.swp
