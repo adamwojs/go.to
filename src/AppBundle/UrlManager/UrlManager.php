@@ -96,8 +96,8 @@ class UrlManager implements UrlManagerInterface
         $repository = $this->em->getRepository('AppBundle:Url');
         
         for($i = 0; $i < self::MAX_ITERATIONS; $i++) {
-            $hash = md5(uniqid($url, true)); 
-            $id = base64_encode(substr($hash, 0, self::URL_CODE_LENGTH));
+            $hash = base64_encode(md5(uniqid($url, true))); 
+            $id = substr($hash, 0, self::URL_CODE_LENGTH);
             
             if(!$repository->find($id)) {
                 return $id;
