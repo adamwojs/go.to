@@ -1,9 +1,15 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
 parameters:
-#    parameter_name: value
-
+    url.manager.redirect_route: redirect
+    
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    form.type.url_shorten:
+        class: AppBundle\Form\Type\UrlShortenType
+        tags:
+            - { name: form.type, alias: url_shorten }
+            
+    url.manager:
+        class: AppBundle\UrlManager\UrlManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @router
+            - %url.manager.redirect_route%

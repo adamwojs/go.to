@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Homepage.
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        
+        <button type="submit">
+            Wyślij
+        </button>
+    {{ form_end(form) }}
 {% endblock %}
