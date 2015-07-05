@@ -50,9 +50,10 @@ class DefaultController extends Controller
                 ->getUrlManager()
                 ->shorten($form['url']->getData());
             
-            return new JsonResponse([
-                'url' => $url
-            ]);
+            return [
+                'form' => $form->createView(),
+                'url'  => $url
+            ];
         }
         
         return [
@@ -65,7 +66,7 @@ class DefaultController extends Controller
      * 
      * @param string $id
      * 
-     * @Route("/{id}", name="redirect")
+     * @Route("/{id}", name="redirect", requirements={"id" = "\w+"})
      * @Method({"GET"})
      */
     public function redirectAction($id) 
