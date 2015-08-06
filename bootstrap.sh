@@ -43,3 +43,8 @@ sudo echo "xdebug.remote_autostart = 0" >> /etc/php5/apache2/conf.d/xdebug.ini
 
 # Restartujemy apacha
 sudo apache2ctl restart
+
+cd /vagrant
+sudo -uwww-data composer install
+sudo -uwww-data php app/console doctrine:database:create
+sudo -uwww-data php app/console doctrine:schema:create
