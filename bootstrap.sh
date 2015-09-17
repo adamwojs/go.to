@@ -40,6 +40,10 @@ sudo echo "xdebug.idekey = \"vagrant\"" >> /etc/php5/apache2/conf.d/xdebug.ini
 sudo echo "xdebug.remote_host = 33.33.33.1" >> /etc/php5/apache2/conf.d/xdebug.ini
 sudo echo "xdebug.remote_port = 9000" >> /etc/php5/apache2/conf.d/xdebug.ini
 sudo echo "xdebug.remote_autostart = 0" >> /etc/php5/apache2/conf.d/xdebug.ini
+sudo echo "xdebug.profiler_enable = 1" >> /etc/php5/apache2/conf.d/xdebug.ini
+sudo echo "xdebug.profiler_output_name = xdebug.out.%t" >> /etc/php5/apache2/conf.d/xdebug.ini
+sudo echo "xdebug.profiler_output_dir = /vagrant/app/logs/" >> /etc/php5/apache2/conf.d/xdebug.ini
+sudo echo "xdebug.profiler_enable_trigger = 1" >> /etc/php5/apache2/conf.d/xdebug.ini
 
 # Restartujemy apacha
 sudo apache2ctl restart
